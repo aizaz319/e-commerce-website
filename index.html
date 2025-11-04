@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Food Shop</title>
+    <meta name="description" content="Order delicious food online. Browse our menu and place your order via email or WhatsApp.">
+    <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <div class="brand">
+                <img src="./assets/favicon.svg" alt="Logo" class="logo">
+                <span class="brand-name">My Food Shop</span>
+            </div>
+            <nav class="nav">
+                <a href="#products">Menu</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <button id="openCartBtn" class="cart-button" aria-label="Open cart">
+                <span class="cart-count" id="cartCount">0</span>
+                <span>Cart</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Delicious food, delivered fresh</h1>
+                <p>Browse our menu and order your favorite dishes. Add to cart and place your order via email or WhatsApp.
+                </p>
+                <a href="#products" class="btn primary">View Menu</a>
+            </div>
+            <div class="hero-visual" aria-hidden="true"></div>
+        </section>
+
+        <section id="products" class="products-section">
+            <div class="section-header">
+                <h2>Our Menu</h2>
+                <div class="filters">
+                    <input type="search" id="searchInput" placeholder="Search dishes..." aria-label="Search dishes">
+                </div>
+            </div>
+            <div id="productGrid" class="product-grid" aria-live="polite"></div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="section-intro">
+                <h2>About Us</h2>
+                <p class="section-subtitle">Serving delicious meals, one order at a time</p>
+            </div>
+            <div class="about-content">
+                <div class="about-card">
+                    <div class="about-icon">🍽️</div>
+                    <h3>Fresh Ingredients</h3>
+                    <p>We use only the freshest, locally sourced ingredients to create our dishes. Every meal is prepared with care and attention to quality.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">👨‍🍳</div>
+                    <h3>Expert Chefs</h3>
+                    <p>Our experienced chefs craft each dish with passion and skill, ensuring every bite is a memorable experience.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">⚡</div>
+                    <h3>Quick Delivery</h3>
+                    <p>We understand you're hungry! Our streamlined ordering process and efficient delivery ensure your food arrives hot and fresh.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <div class="section-intro">
+                <h2>Get in Touch</h2>
+                <p class="section-subtitle">Have questions? We're here to help! Reach out anytime.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-card">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p class="contact-desc">Send us an email for order inquiries and we'll respond quickly.</p>
+                    <a href="mailto:orders@example.com" class="contact-link">orders@example.com</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">💬</div>
+                    <h3>WhatsApp</h3>
+                    <p class="contact-desc">Chat with us directly for instant support and faster ordering.</p>
+                    <a href="https://wa.me/923149461171" target="_blank" rel="noreferrer noopener" class="contact-link">Message on WhatsApp</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">⏰</div>
+                    <h3>Opening Hours</h3>
+                    <p class="contact-desc">We're open daily to serve you fresh meals.</p>
+                    <span class="contact-info">Daily: 11 AM - 10 PM</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>© <span id="year"></span> My Food Shop. All rights reserved.</p>
+            <a href="#" id="openCartBtnFooter" class="btn subtle">View cart</a>
+        </div>
+    </footer>
+    <div id="cartBackdrop" class="cart-backdrop" aria-hidden="true"></div>
+    <div id="cartDrawer" class="cart-drawer" aria-hidden="true" aria-labelledby="cartTitle" role="dialog">
+        <div class="cart-header">
+            <h2 id="cartTitle">Your cart</h2>
+            <button id="closeCartBtn" class="icon-button" aria-label="Close cart">×</button>
+        </div>
+        <div id="cartItems" class="cart-items" aria-live="polite"></div>
+        <div class="cart-summary">
+            <div class="row">
+                <span>Subtotal</span>
+                <strong id="subtotalText">$0.00</strong>
+            </div>
+            <p class="muted">Shipping and taxes calculated after order confirmation.</p>
+            <details class="customer-details">
+                <summary>Customer details</summary>
+                <form id="customerForm" class="customer-form">
+                    <label>
+                        <span>Name</span>
+                        <input type="text" id="customerName" required placeholder="Jane Doe">
+                    </label>
+                    <label>
+                        <span>Email</span>
+                        <input type="email" id="customerEmail" required placeholder="jane@example.com">
+                    </label>
+                    <label>
+                        <span>Phone (optional)</span>
+                        <input type="tel" id="customerPhone" placeholder="+1 555 123 4567">
+                    </label>
+                    <label>
+                        <span>Address (optional)</span>
+                        <textarea id="customerAddress" rows="2" placeholder="Street, City, Country"></textarea>
+                    </label>
+                </form>
+            </details>
+            <div class="checkout-actions">
+                <button id="emailOrderBtn" class="btn primary full">Order via Email</button>
+                <button id="whatsAppOrderBtn" class="btn full">Order via WhatsApp</button>
+                <p class="muted tiny">No payment is collected here. We will confirm your order, total, and delivery options by reply.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product Details Modal -->
+    <div id="productBackdrop" class="modal-backdrop" aria-hidden="true"></div>
+    <div id="productModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="productTitle">
+        <div class="modal-card" role="document">
+            <button id="productCloseBtn" class="icon-button modal-close" aria-label="Close product details">×</button>
+            <div id="productContent" class="modal-content"></div>
+        </div>
+    </div>
+
+    <script src="./assets/script.js" defer></script>
+</body>
+</html>
+
+
