@@ -30,7 +30,7 @@
     { id: 'f-caesar', title: 'Caesar Salad', price: 10.99, image: 'https://images.unsplash.com/photo-1550304943-4f24f54ddde9?q=80&w=800&auto=format&fit=crop', desc: 'Romaine, parmesan, croutons, and dressing.' },
     { id: 'f-garlic-bread', title: 'Garlic Bread', price: 5.49, image: 'https://images.unsplash.com/photo-1598373182133-52452f7691ef?q=80&w=800&auto=format&fit=crop', desc: 'Toasted baguette with garlic butter.', badge: 'Popular' },
     { id: 'f-milkshake', title: 'Chocolate Milkshake', price: 6.49, image: 'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?q=80&w=800&auto=format&fit=crop', desc: 'Thick shake topped with whipped cream.' },
-    { id: 'f-latte', title: 'Cafe Latte', price: 4.49, image: 'https://images.unsplash.com/photo-1517705008128-361805f42e86?q=80&w=800&auto=format&fit=crop', desc: 'Smooth espresso with steamed milk.' }
+    { id: 'f-latte', title: 'Cafe Latte', price: 4.49, image: 'https://www.cuisinart.com/dw/image/v2/ABAF_PRD/on/demandware.static/-/Sites-us-cuisinart-sfra-Library/default/dw42dcae51/images/recipe-Images/cafe-latte1-recipe_resized.jpg?sw=1200&sh=1200?q=80&w=800&auto=format&fit=crop', desc: 'Smooth espresso with steamed milk.' }
   ];
 
   const $ = (sel) => document.querySelector(sel);
