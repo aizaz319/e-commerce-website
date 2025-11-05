@@ -301,4 +301,41 @@
   document.addEventListener('DOMContentLoaded', init);
 })();
 
+// Move to Top button logic
+const toTopBtn = document.getElementById('toTopBtn');
+if (toTopBtn) {
+  function updateToTopBtn() {
+    const cartDrawer = document.getElementById('cartDrawer');
+    const cartOpen = cartDrawer && cartDrawer.classList.contains('open');
+    if (cartOpen) {
+      toTopBtn.style.display = 'none';
+      return;
+    }
+    if (window.scrollY > 200) {
+      toTopBtn.style.display = 'flex';
+    } else {
+      toTopBtn.style.display = 'none';
+    }
+  }
+  window.addEventListener('scroll', updateToTopBtn);
+  // Also check on cart open/close (populated in attachEvents etc.)
+  [
+    'cartDrawer', 'openCartBtn', 'closeCartBtn', 'cartBackdrop'
+  ].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('click', () => setTimeout(updateToTopBtn, 320));
+  });
+  // Initial
+  updateToTopBtn();
+  toTopBtn.addEventListener('click', () => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  });
+  toTopBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      window.scrollTo({top: 0, behavior: 'smooth'});
+    }
+  });
+}
+
 
